@@ -12,7 +12,9 @@
 ## Run
 
 1. Start Consul
-	`docker run -d --name consul -e CONSUL_BIND_INTERFACE=eth0 -p 8300-8302:8300-8302 -p 8600:8600 -p 8500:8500 --network bridge --add-host=dockerhost:$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}') consul`
+	```
+	docker run -d --name consul -e CONSUL_BIND_INTERFACE=eth0 -p 8300-8302:8300-8302 -p 8600:8600 -p 8500:8500 --network bridge --add-host=dockerhost:$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}') consul
+	```
 
 2. Create common configurations in Consul
 	```
@@ -44,4 +46,6 @@
 ## Links
 
 * https://www.baeldung.com/spring-cloud-consul
-* https://cloud.spring.io/spring-cloud-consul/multi/multi_spring-cloud-consul-turbine.html - `TODO`
+
+### Turbine (Not supported by Consul, just Eureka for now)
+* https://cloud.spring.io/spring-cloud-consul/multi/multi_spring-cloud-consul-turbine.html
